@@ -5,18 +5,19 @@ metadata:
     app: hello-world
     name: hello-world
   namespace: christians-apps
+  name: hello-world
 spec:
-   rules:
-   - host: k3s.hello-world.local
-     http:
-       paths:
-       - backend:
-           service:
-             name: hello-world
-             port:
-               number: 80
-         path: /
-         pathType: Prefix
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: hello-world
+            port: 
+              number: 80
+    host: k3s.hello-world.local
 status:
   loadBalancer:
     ingress:
