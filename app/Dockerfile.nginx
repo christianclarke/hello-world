@@ -1,0 +1,7 @@
+FROM nginx:latest
+RUN mkdir -p /etc/nginx/sites-enabled
+COPY k3s.learning.com/ /var/www/k3s.learning.com
+COPY k3s.learning.com.nginx /etc/nginx/sites-available/k3s.learning.com
+RUN ln -s /etc/nginx/sites-available/k3s.learning.com /etc/nginx/sites-enabled/k3s.learning.com
+RUN ln -s /etc/nginx/sites-available/k3s.learning.com /etc/nginx/conf.d/k3s.learning.com.conf
+EXPOSE 4567
