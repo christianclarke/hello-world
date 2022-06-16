@@ -5,8 +5,7 @@ metadata:
   namespace: christians-apps
 spec:
   entryPoints:
-    web:
-      address: ":80"
+    - web
   routes:
     - kind: Rule
       match: Host(`k3s.hello-world.local`)
