@@ -1,0 +1,23 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: hello-world
+  namespace: christians-apps
+spec:
+  entryPoints:
+    web:
+      address: ":80"
+  routes:
+    - kind: Rule
+      match: Host(`k3s.hello-world.local`)
+      priority: 10
+      services:
+        - name: hello-world
+          port: 80
+    - kind: Rule
+      match: Host(`k3s.hello-world.local`) && Headers(`Content-Type`, `application/grpc`)
+      priority: 11
+      services:
+        - name: hello-world
+          port: 80
+          scheme: h2c
