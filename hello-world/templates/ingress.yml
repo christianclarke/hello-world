@@ -1,11 +1,11 @@
 apiVersion: networking.k8s.io/v1
- kind: Ingress
- metadata:
-   labels:
-     app: hello-world
-   name: hello-world
-   namespace: christians-apps
- spec:
+kind: Ingress
+metadata:
+  labels:
+    app: hello-world
+    name: hello-world
+  namespace: christians-apps
+spec:
    rules:
    - host: k3s.hello-world.local
      http:
@@ -17,10 +17,10 @@ apiVersion: networking.k8s.io/v1
                number: 80
          path: /
          pathType: Prefix
- status:
-   loadBalancer:
-     ingress:
-     - ip: 192.168.1.141
-     - ip: 192.168.1.172
-     - ip: 192.168.1.24
-     - ip: 192.168.1.86
+status:
+  loadBalancer:
+    ingress:
+    - ip: 192.168.1.141
+    - ip: 192.168.1.172
+    - ip: 192.168.1.24
+    - ip: 192.168.1.86
