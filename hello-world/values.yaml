@@ -1,4 +1,4 @@
 service:
   port: 4567
 env:
-  version: v2
+  version: v3
